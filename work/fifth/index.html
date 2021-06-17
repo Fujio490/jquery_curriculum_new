@@ -105,14 +105,14 @@
             $('.list').children('li').show();
           } else {//全要素をhideで隠す
             $('.list').children('li').hide();
+            //varとdataを比較して、一致する場合はshow
+            $('.list').children('li').each(function() {
+              var data = $(this).data('category-type');
+              if(val === data) {
+                $(this).show();
+              }
+            });
           }
-          //varとdataを比較して、一致する場合はshow
-          $('.list').children('li').each(function() {
-            var data = $(this).data('category-type');
-            if(val === data) {
-              $(this).show();
-            }
-          });
         });
       });
     </script>

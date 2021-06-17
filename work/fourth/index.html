@@ -57,12 +57,15 @@
       // .children() 要素の子要素を取得します。
       // .stop() 現在動作中のアニメーション処理を全て中止します。
       $(function() {
-        $('.menu__list').children('li').hover(function() {
-          $(this).children('ul:not(:animated)').slideDown();
-          // ul:not(:animated)でアニメーションの最中にアニメーションを実行しない設定
-        }, function() {
-          $(this).children('ul').slideUp();
-        });
+        $('.menu__list').children('li').hover(
+          function() {
+            $(this).children('ul').stop().slideDown();
+            // ul:not(:animated)でアニメーションの最中にアニメーションを実行しない設定
+          }, 
+          function() {
+            $(this).children('ul').stop().slideUp();
+          }
+        );
       });
     </script>
   </body>
